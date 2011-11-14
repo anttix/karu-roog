@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:message code="label_feeding_index" htmlEscape="false" var="title"/>
+  <util:panel id="title" title="${title}">
+    <spring:message code="application_name" htmlEscape="false" var="app_name"/>
+    <h3>
+      <!-- <spring:message arguments="${app_name}" code="welcome_titlepane"/>  -->
+      Feeding time!
+    </h3>
+    <c:forEach items="${data}" var="d">
+      <h3>${d.cage.name}</h3>
+      <table>
+        <c:forEach items="${d.items}" var="i">
+          <tr>
+            <c:forEach items="${i}" var="c">
+              <td>${c}</td>
+            </c:forEach>
+          </tr>
+        </c:forEach>
+      </table>
+    </c:forEach>
+  </util:panel>
+</div>

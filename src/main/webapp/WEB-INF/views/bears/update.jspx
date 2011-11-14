@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_example_entities_Bear" modelAttribute="bear" path="/bears" versionField="Version" z="ja51Qe5aHO5C6leoE2RuFUM0tjE=">
+        <field:input field="name" id="c_ee_itcollege_example_entities_Bear_name" z="TvXxEN43GjshIZ90v4+V0+7cFbI="/>
+        <field:select field="cage" id="c_ee_itcollege_example_entities_Bear_cage" itemValue="id" items="${cages}" path="/cages" z="B9UJDFTLTVRmbDR3f3vBqKRA7aM="/>
+        <field:select field="menu" id="c_ee_itcollege_example_entities_Bear_menu" itemValue="id" items="${menus}" path="/menus" z="qc6crJUPR4T6/g1iitldNdV03L8="/>
+    </form:update>
+</div>

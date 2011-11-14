@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_example_entities_Bear" modelAttribute="bear" path="/bears" render="${empty dependencies}" z="elWxjBA/bxsDEUnAwK9Ww2jdzME=">
+        <field:input field="name" id="c_ee_itcollege_example_entities_Bear_name" z="TvXxEN43GjshIZ90v4+V0+7cFbI="/>
+        <field:select field="cage" id="c_ee_itcollege_example_entities_Bear_cage" itemValue="id" items="${cages}" path="/cages" z="B9UJDFTLTVRmbDR3f3vBqKRA7aM="/>
+        <field:select field="menu" id="c_ee_itcollege_example_entities_Bear_menu" itemValue="id" items="${menus}" path="/menus" z="qc6crJUPR4T6/g1iitldNdV03L8="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_example_entities_Bear" render="${not empty dependencies}" z="j0GymlFTLK5W0mZQKW/C2Tmkd+0="/>
+</div>

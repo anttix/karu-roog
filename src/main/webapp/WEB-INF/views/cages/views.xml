@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="cages/list">
+        <put-attribute name="body" value="/WEB-INF/views/cages/list.jspx"/>
+    </definition>
+<definition extends="default" name="cages/show">
+        <put-attribute name="body" value="/WEB-INF/views/cages/show.jspx"/>
+    </definition>
+<definition extends="default" name="cages/create">
+        <put-attribute name="body" value="/WEB-INF/views/cages/create.jspx"/>
+    </definition>
+<definition extends="default" name="cages/update">
+        <put-attribute name="body" value="/WEB-INF/views/cages/update.jspx"/>
+    </definition>
+</tiles-definitions>
