@@ -4,7 +4,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_ee_itcollege_example_entities_Menu" modelAttribute="menu" path="/menus" versionField="Version" z="4h/9gdDzWlQOLWG6vu1yO4KBTRI=">
         <field:input field="name" id="c_ee_itcollege_example_entities_Menu_name" z="HWqw3xotkPFnyw0+VPMT3AsgBwc="/>
-        <field:simple field="bears" id="c_ee_itcollege_example_entities_Menu_bears" messageCode="entity_reference_not_managed" messageCodeAttribute="Bear" z="4TE1LBMBZ41Qwl+J/7d5UMIGAn4="/>
-        <field:simple field="ingredients" id="c_ee_itcollege_example_entities_Menu_ingredients" messageCode="entity_reference_not_managed" messageCodeAttribute="Ingredient" z="88d68xq3NQYBLMCYnxwDdZhpkgA="/>
+        <!-- Sätime render="false" ja hoiame seda sodi siin selleks, et Roo ei
+             avastaks, et ta peab need mõttetud read uuesti tegema! -->
+        <field:simple field="bears" id="c_ee_itcollege_example_entities_Menu_bears" messageCode="entity_reference_not_managed" messageCodeAttribute="Bear" render="false" z="user-managed"/>
+        <field:simple field="ingredients" id="c_ee_itcollege_example_entities_Menu_ingredients" messageCode="entity_reference_not_managed" messageCodeAttribute="Ingredient" render="false" z="user-managed"/>
     </form:update>
 </div>

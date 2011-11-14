@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ee_itcollege_example_entities_Bear" modelAttribute="bear" path="/bears" render="${empty dependencies}" z="elWxjBA/bxsDEUnAwK9Ww2jdzME=">
-        <field:input field="name" id="c_ee_itcollege_example_entities_Bear_name" z="TvXxEN43GjshIZ90v4+V0+7cFbI="/>
+        <field:input field="name" id="c_ee_itcollege_example_entities_Bear_name" max="25" min="2" required="true" z="jP3Mgyl++CePdMuUaN/s7OAxpVo="/>
         <field:select field="cage" id="c_ee_itcollege_example_entities_Bear_cage" itemValue="id" items="${cages}" path="/cages" z="B9UJDFTLTVRmbDR3f3vBqKRA7aM="/>
         <field:select field="menu" id="c_ee_itcollege_example_entities_Bear_menu" itemValue="id" items="${menus}" path="/menus" z="qc6crJUPR4T6/g1iitldNdV03L8="/>
     </form:create>

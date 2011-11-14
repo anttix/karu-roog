@@ -11,9 +11,7 @@ import java.lang.Long;
 import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,23 +21,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect IngredientController_Roo_Controller {
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String IngredientController.create(@Valid Ingredient ingredient, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("ingredient", ingredient);
-            return "ingredients/create";
-        }
-        uiModel.asMap().clear();
-        ingredient.persist();
-        return "redirect:/ingredients/" + encodeUrlPathSegment(ingredient.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String IngredientController.createForm(Model uiModel) {
-        uiModel.addAttribute("ingredient", new Ingredient());
-        return "ingredients/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String IngredientController.show(@PathVariable("id") Long id, Model uiModel) {
@@ -59,17 +40,6 @@ privileged aspect IngredientController_Roo_Controller {
             uiModel.addAttribute("ingredients", Ingredient.findAllIngredients());
         }
         return "ingredients/list";
-    }
-    
-    @RequestMapping(method = RequestMethod.PUT)
-    public String IngredientController.update(@Valid Ingredient ingredient, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("ingredient", ingredient);
-            return "ingredients/update";
-        }
-        uiModel.asMap().clear();
-        ingredient.merge();
-        return "redirect:/ingredients/" + encodeUrlPathSegment(ingredient.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)

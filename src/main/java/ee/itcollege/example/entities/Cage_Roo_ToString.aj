@@ -11,8 +11,7 @@ privileged aspect Cage_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Bears: ").append(getBears() == null ? "null" : getBears().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
-        sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Version: ").append(getVersion());
+        sb.append("Name: ").append(getName());
         return sb.toString();
     }
     

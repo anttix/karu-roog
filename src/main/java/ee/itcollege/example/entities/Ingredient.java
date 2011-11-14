@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -26,6 +27,7 @@ public class Ingredient implements Serializable {
 	private int amount;
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
+	@NotNull
 	private Menu menu;
 
 	public Ingredient() {

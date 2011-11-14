@@ -1,8 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:spring="http://www.springframework.org/tags"
+     version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_ee_itcollege_example_entities_Menu" object="${menu}" path="/menus" z="McvxzBIWqkfRbH9Js6lfwjRF2oE=">
         <field:display field="name" id="s_ee_itcollege_example_entities_Menu_name" object="${menu}" z="qZ8uKgASHF8ssnYbLjoQecruYIk="/>
+
+        <!-- FIXME: See tekst ei ole tõlgitav -->
+        <div>Ingredients</div>
+
+        <!--
+            Tabeli kood on kopeeritud failist views/ingredients/list.jspx
+            - keeratud data atribuudi väärtus õigeks (menu.ingredients)
+            - kustutatud üleliigsed z="..." atribuudid
+            - kustutatud siin kontekstis mõttetu menu tulp
+            - lisatud table tag-ile atribuudid, mis keelavad osade nuppude
+              näitamise
+
+            NB! Roo taglibi table ei toeta detailide vaatamise nupu ära
+                kaotamist, kui seda on vaja, siis tuleb oma samm kampunn
+                versioon teha või luua tavaline HTML-i tabel kasutades näiteks
+                c:forEach tag-i vaata views/cages/show.jspx
+        -->
+
+        <table:table data="${menu.ingredients}" id="l_ee_itcollege_example_entities_Ingredient"
+                     path="/ingredients" create="false">
+            <table:column id="c_ee_itcollege_example_entities_Ingredient_name" property="name" />
+            <table:column id="c_ee_itcollege_example_entities_Ingredient_amount" property="amount" />
+        </table:table>
+
+        <!--
+            Näitame uue toiduaine (menüükirje) lisamise nuppu.
+            Kuna kirje tuleb lisada parasjagu aktiivsesse menüüsse, siis peame
+            lisamisvormile kuidagi edastama menüü id. Kõige loogilisem on panna
+            see lisamise lingile parameetrina kaasa. Järelikult ei sobi meile
+            Roo tehtud lisamise nupp ja seetõttu on selle renderdamine üleval
+            pool create="false" abil välja lülitatud. Alljärgnev kood on
+            sisuliselt Copy-Paste Roo tags/form/fields/table.tagx failist koos
+            järgmiste muudatustega:
+             - Tabeli asemel on Add nupp pandud div-i sisse
+             - loomulikult on ära asendatud muutujad:
+               ${path} -> /ingredients, ${typeName} -> Ingredient
+             - Genereeritava lingi sisse on spring:param tagi abil lisatud menüü ID
+             - URL-ide ümbert on ära on koristatud mõttetu fn:escapeXML funktsioon.
+               Kõik pole alati kuld, mida Roo progejad kirjutavad: kui see alles jätta,
+               siis solgitakse GET parameetrid ära (& -> &amp;)
+            Vaata ka muudatusi IngredientController.java failis.
+        -->
+
+        <div>
+          <span class="new">
+            <spring:url value="/ingredients" var="create_url">
+              <spring:param name="form" />
+              <spring:param name="menu" value="${menu.id}" />
+            </spring:url>
+            <a href="${create_url}">
+              <spring:url value="/resources/images/add.png" var="create_img_url" />
+              <spring:message arguments="Ingredient" code="global_menu_new" var="add_message" htmlEscape="false" />
+              <img alt="${fn:escapeXml(add_message)}" src="${create_img_url}" title="${fn:escapeXml(add_message)}" />
+            </a>
+          </span>
+        </div>
+
     </page:show>
 </div>

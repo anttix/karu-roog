@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -28,6 +29,7 @@ public class Bear {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Size(min = 2, max = 25)
 	private String name;
 	@ManyToOne
 	private Cage cage;

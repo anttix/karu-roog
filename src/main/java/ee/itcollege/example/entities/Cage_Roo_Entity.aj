@@ -59,14 +59,6 @@ privileged aspect Cage_Roo_Entity {
         this.entityManager.clear();
     }
     
-    @Transactional
-    public Cage Cage.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        Cage merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
-    }
-    
     public static final EntityManager Cage.entityManager() {
         EntityManager em = new Cage().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");

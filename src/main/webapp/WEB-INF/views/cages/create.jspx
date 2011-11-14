@@ -3,8 +3,13 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ee_itcollege_example_entities_Cage" modelAttribute="cage" path="/cages" render="${empty dependencies}" z="LW3oW95ujubylclypbtLaslZWMc=">
-        <field:input field="name" id="c_ee_itcollege_example_entities_Cage_name" z="1dGfp0NLsgIGmrN8vrFZd6HUfyg="/>
-        <field:simple field="bears" id="c_ee_itcollege_example_entities_Cage_bears" messageCode="entity_reference_not_managed" messageCodeAttribute="Bear" z="8bA9ibtBVIrXMKxn+LIbix5B6Vc="/>
+        <field:input field="name" id="c_ee_itcollege_example_entities_Cage_name" max="10" min="1" required="true" z="jCpaj1NanIwRjreYAufAxwMRSoQ="/>
+        <!--
+             field:select koos multiple="true" atribuudiga tekitab kasti, kus
+             kasutaja saab CTRL klahvi all hoides mitu elementi valida. Üldjuhul
+             tasub eelistada mõnda lihtsamat kasutajaliidest, näiteks checkboxe.
+        -->
+        <field:select field="bears" id="c_ee_itcollege_example_entities_Cage_bears" itemValue="id" items="${bears}" multiple="true" path="/bears" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_example_entities_Cage" render="${not empty dependencies}" z="GiM6BikKV7B/ehMTWbFnExM0fxM="/>
 </div>

@@ -5,7 +5,7 @@
     <form:create id="fc_ee_itcollege_example_entities_Ingredient" modelAttribute="ingredient" path="/ingredients" render="${empty dependencies}" z="P+Be/TYd9K58eFs2I0JflGktz4k=">
         <field:input field="name" id="c_ee_itcollege_example_entities_Ingredient_name" z="MR4V2JTi7RtVGc9SKTbWVT0W6qw="/>
         <field:input field="amount" id="c_ee_itcollege_example_entities_Ingredient_amount" z="ZcrN5qMpsINSuXt0m93lJatcX2E="/>
-        <field:select field="menu" id="c_ee_itcollege_example_entities_Ingredient_menu" itemValue="id" items="${menus}" path="/menus" z="wVO7T+yJPB7TmbWaKpM7H1eHbNg="/>
+        <field:select field="menu" id="c_ee_itcollege_example_entities_Ingredient_menu" itemValue="id" items="${menus}" path="/menus" required="true" z="ONkj73eqxuzJTGMOua1z4ymIL7o="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_example_entities_Ingredient" render="${not empty dependencies}" z="P3rFiwr3ThROQyJ0LJX9Jrz+y8A="/>
 </div>
