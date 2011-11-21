@@ -12,8 +12,9 @@
     <page:show id="ps_ee_itcollege_example_entities_Menu" object="${menu}" path="/menus" z="McvxzBIWqkfRbH9Js6lfwjRF2oE=">
         <field:display field="name" id="s_ee_itcollege_example_entities_Menu_name" object="${menu}" z="qZ8uKgASHF8ssnYbLjoQecruYIk="/>
 
-        <!-- FIXME: See tekst ei ole tõlgitav -->
-        <div>Ingredients</div>
+        <div>
+          <spring:message code="label_ee_itcollege_example_entities_ingredient_plural" />
+        </div>
 
         <!--
             Tabeli kood on kopeeritud failist views/ingredients/list.jspx

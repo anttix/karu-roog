@@ -8,10 +8,8 @@
   <jsp:output omit-xml-declaration="yes"/>
   <spring:message code="label_feeding_index" htmlEscape="false" var="title"/>
   <util:panel id="title" title="${title}">
-    <spring:message code="application_name" htmlEscape="false" var="app_name"/>
     <h3>
-      <!-- <spring:message arguments="${app_name}" code="welcome_titlepane"/>  -->
-      Feeding time!
+      <spring:message code="feeding_heading" />
     </h3>
     <c:forEach items="${data}" var="d">
       <h3>${d.cage.name}</h3>

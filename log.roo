@@ -9,3 +9,8 @@ web mvc controller --class ~.web.FeedingController
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-10-27 12:23:51
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-10 10:14:03
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-10 12:32:51
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-17 10:36:35
+security setup
+web mvc language --code de
+logging setup --level INFO
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-18 09:20:39

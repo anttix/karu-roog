@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" xmlns:spring="http://www.springframework.org/tags" xmlns:sec="http://www.springframework.org/security/tags" id="menu" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+      <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <p>
+          <spring:message code="menu_admin_role_message" />
+        </p>
+      </sec:authorize>
+      <sec:authorize url="/cages">
         <menu:category id="c_cage" z="7jm74hlL5R0Ckb93LzTshY9O9rM=">
             <menu:item id="i_cage_new" messageCode="global_menu_new" url="/cages?form" z="1grfVVzzSbYljyFTrpoWWdDgtxA="/>
             <menu:item id="i_cage_list" messageCode="global_menu_list" url="/cages?page=1&amp;size=${empty param.size ? 10 : param.size}" z="go3J4/eLe7lqLyUHOjie1/+Y3f8="/>
         </menu:category>
+      </sec:authorize>
+      <sec:authorize url="/bears">
         <menu:category id="c_bear" z="fJcEx3P202G/49X/Nk5acMS2Czw=">
             <menu:item id="i_bear_new" messageCode="global_menu_new" url="/bears?form" z="RBuWgMIxHWobMdTXD9lmvABjOO0="/>
             <menu:item id="i_bear_list" messageCode="global_menu_list" url="/bears?page=1&amp;size=${empty param.size ? 10 : param.size}" z="yVDCmfU6IUK4m2ajDeQOGsqgoUw="/>
         </menu:category>
+      </sec:authorize>
+      <sec:authorize url="/ingredients">
         <menu:category id="c_ingredient" z="de19E8GCQu3hZjuVuBSOyG4K1DM=">
             <menu:item id="i_ingredient_new" messageCode="global_menu_new" url="/ingredients?form" z="MpogjMgYuSDuUYjk+irK39MAyWc="/>
             <menu:item id="i_ingredient_list" messageCode="global_menu_list" url="/ingredients?page=1&amp;size=${empty param.size ? 10 : param.size}" z="WkbCrKrZM0xn47YKvMYgZUCcZRQ="/>
         </menu:category>
+      </sec:authorize>
+      <sec:authorize url="/menus">
         <menu:category id="c_menu" z="//eD82nPS8KFipcP7hvzXtrCYX0=">
             <menu:item id="i_menu_new" messageCode="global_menu_new" url="/menus?form" z="OjACSHyi2U4b93Xjexn/NikGhro="/>
             <menu:item id="i_menu_list" messageCode="global_menu_list" url="/menus?page=1&amp;size=${empty param.size ? 10 : param.size}" z="HEjOIHkg4U44NZ57BPDv1Wl9YzQ="/>
         </menu:category>
+      </sec:authorize>
         <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__feedingindex_id" messageCode="global_generic" url="/feeding/index" z="QtBnbo7MiQrzji3zosSobnenXGQ="/>
         </menu:category>
