@@ -419,6 +419,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>karu-roog</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
